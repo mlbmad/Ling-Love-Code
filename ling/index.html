@@ -61,36 +61,9 @@
 
     <!-- <audio preload="auto" autoplay="" id="media" src="玲IDo.mp3" autoplay preload loop="loop"></audio> -->
 
-    <audio preload="auto" id="media" src="玲IDo.mp3" loop="loop">
-        您的浏览器不支持 audio 元素。
-    </audio>
-    
-    <script>
-        // 确保在用户交互后播放音乐
-        document.getElementById('media').onplay = function() {
-            // 检查是否已经在播放
-            if (this.paused) {
-                this.play();
-            }
-        };
-    
-        // 页面加载完成后，等待一段时间或者在用户交互后播放音乐
-        window.onload = function() {
-            // 等待一段时间，确保页面加载完成
-            setTimeout(function() {
-                // 尝试播放音乐
-                var audio = document.getElementById('media');
-                if (audio) {
-                    audio.onplay = null; // 移除onplay事件，避免重复播放
-                    audio.play().catch(function(error) {
-                        // 如果自动播放失败，可以在控制台输出错误信息
-                        console.error('自动播放音乐失败:', error);
-                    });
-                }
-            }, 3000); // 等待3秒后尝试播放
-        };
-    </script>
-
+    <audio controls>
+        <source src="玲IDo.mp3" type="audio/mpeg">
+    </audio> 
 
     <script>
         (function () {
