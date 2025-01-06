@@ -62,10 +62,53 @@
 
     <!-- <audio preload="auto" autoplay="" id="media" src="玲IDo.mp3" autoplay preload loop="loop"></audio> -->
     <!-- <audio preload="auto" id="media" src="玲IDo.mp3" autoplay preload loop="loop"></audio> -->
-    <audio controls>
+    <!--<audio controls>
         <source src="玲IDo.mp3" type="audio/mpeg">
     </audio>
+    -->
+    
+    <div id="div_btn_container">
+        <div id="div_btn_inner">
+          <!-- 心形图标作为音乐播放控制 -->
+          <div id="playButton" onclick="toggleMusic()">
+            ❤️ <!-- 实心心形图标 -->
+          </div>
+      
+          <!-- 音频元素，包含controls属性以显示默认控件 -->
+          <audio id="audio_music" controls loop>
+            <source src="玲IDo.mp3" type="audio/mpeg">
+            您的浏览器不支持播放音乐。
+          </audio>
+        </div>
+    </div>
 
+    <script>
+        function toggleMusic() {
+          var audio = document.getElementById('audio_music');
+          var playButton = document.getElementById('playButton');
+        
+          if (audio.paused) {
+            audio.play(); // 如果音乐暂停，则播放音乐
+            playButton.innerHTML = "❤️"; // 改变心形图标的样式表示正在播放
+          } else {
+            audio.pause(); // 如果音乐正在播放，则暂停音乐
+            playButton.innerHTML = "♡"; // 恢复默认样式表示暂停
+          }
+        }
+        
+        // 确保页面加载时不会自动播放音乐
+        $(function () {
+          $('#audio_music').prop('autoplay', false);
+        
+          // 初始化时确保心形图标状态与音频播放状态一致
+          var audio = document.getElementById('audio_music');
+          if (audio.paused) {
+            document.getElementById('playButton').innerHTML = "❤️";
+          } else {
+            document.getElementById('playButton').innerHTML = "♡";
+          }
+        });
+    </script>
 
     <script>
         (function () {
