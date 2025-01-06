@@ -2,7 +2,7 @@
 /* 心形图标的基础样式 */
 #playButton {
   cursor: pointer;
-  font-size: 3em; /* 调整为适合的大小 */
+  font-size: 8em; /* 调整为适合的大小 */
   text-align: center;
   margin-top: 20px;
   transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
